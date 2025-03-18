@@ -5,6 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import json
+import subprocess
+
 # 初始化一個 WebDriver
 chrome_options = Options()
 chrome_options.add_argument('--headless')
@@ -55,8 +57,28 @@ def main():
     driver.quit()
     ep(dicts)
     
+def run_git_commands(directory, commit_message):
+    try:
+        # 執行 git add .
+        subprocess.run(["git", "add", "."], cwd=directory, check=True)
+        print("成功執行 git add .")
+
+        # 執行 git commit
+        subprocess.run(["git", "commit", "-m", commit_message], cwd=directory, check=True)
+        print(f"成功執行 git commit: '{commit_message}'")
+
+        # 執行 git push
+        subprocess.run(["git", "push"], cwd=directory, check=True)
+        print("成功執行 git push")
+    
+    except subprocess.CalledProcessError as e:
+        print("執行 Git 命令時發生錯誤:", e)
+
+directory = "C:\\Users\\raytin\\Documents\\git\\MpSy"  # 替換為你的目錄路徑
+commit_message = "update"  # 替換為你的提交訊息
 
 main()
+run_git_commands(directory, commit_message)
 
 
 
