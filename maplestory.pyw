@@ -17,13 +17,13 @@ soup = BeautifulSoup(driver.page_source, 'lxml')
 domain="https://maplestory.beanfun.com/"
 
 def ld():
-    with open('Y:\\file\\MapleStory\\MapleStory_new.json','r',encoding='utf-8') as f:
+    with open('C:\\Users\\raytin\\Documents\\git\\MpSy\\MapleStory_new.json','r',encoding='utf-8') as f:
         dicts=json.load(f)
         return dicts
 
 
 def ep(dicts):
-    with open('Y:\\file\\MapleStory\\MapleStory_new.json','w',encoding='utf-8') as f:
+    with open('C:\\Users\\raytin\\Documents\\git\\MpSy\\MapleStory_new.json','w',encoding='utf-8') as f:
         json.dump(dicts,f)
 
 
