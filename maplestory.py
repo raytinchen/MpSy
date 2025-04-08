@@ -19,13 +19,13 @@ soup = BeautifulSoup(driver.page_source, 'lxml')
 domain="https://maplestory.beanfun.com/"
 
 def ld():
-    with open('/home/raytin/python/MpSy/MapleStory_new.json','r',encoding='utf-8') as f:
+    with open('/home/raytin/MpSy/MapleStory_new.json','r',encoding='utf-8') as f:
         dicts=json.load(f)
         return dicts
 
 
 def ep(dicts):
-    with open('/home/raytin/python/MpSy/MapleStory_new.json','w',encoding='utf-8') as f:
+    with open('/home/raytin/MpSy/MapleStory_new.json','w',encoding='utf-8') as f:
         json.dump(dicts,f)
 
 
@@ -74,7 +74,7 @@ def run_git_commands(directory, commit_message):
     except subprocess.CalledProcessError as e:
         print("執行 Git 命令時發生錯誤:", e)
 
-directory = "/home/raytin/python/MpSy/"  # 替換為你的目錄路徑
+directory = "/home/raytin/MpSy/"  # 替換為你的目錄路徑
 commit_message = "update"  # 替換為你的提交訊息
 
 main()
